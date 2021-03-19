@@ -311,7 +311,7 @@ oov_tok = '<OOV>'
 
 1. Using Conv1D :
 """
-
+#With Adam
 tf.keras.backend.clear_session()
 model = Sequential()
 model.add(Embedding(vocab_size, embedding_dim, input_length=train_padded.shape[1]))
@@ -560,7 +560,7 @@ predicted = model5.predict(validation_padded)
 evaluate_preds(np.argmax(validation_labels, axis=1), np.argmax(predicted, axis=1))
 
 """2.Using LSTMs :"""
-
+#With Adam
 tf.keras.backend.clear_session()
 model6 = Sequential()
 
@@ -981,7 +981,8 @@ predicted = model15.predict(validation_padded)
 evaluate_preds(np.argmax(validation_labels, axis=1), np.argmax(predicted, axis=1))
 
 """4.Using CNN1D + LSTMs :"""
-
+#With CNN 1-D + LSTMs
+#With Adam
 tf.keras.backend.clear_session()
 model16 = Sequential()
 
@@ -1195,7 +1196,8 @@ predicted = model20.predict(validation_padded)
 evaluate_preds(np.argmax(validation_labels, axis=1), np.argmax(predicted, axis=1))
 
 """5.Using Bi_LSTMs + CNN1D :"""
-
+#Bi_directional_LSTMs + CNN1D :
+#With Adam
 tf.keras.backend.clear_session()
 model21 = Sequential()
 
