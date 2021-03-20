@@ -4,6 +4,7 @@
 
 <p>Here , I have tried to perform a detailed analysis and comparison of various hybrid combination of deep neural networks and choosing different optimizer's impact on their learning and training of model and hence , their performance and time taken to train.</p>
 
+<p>Please have a look at full_main.py or IPYNB Notebook for further reference. </p>
 ## CNN1-D:
 ### Model 1 - CNN-1D :
 
