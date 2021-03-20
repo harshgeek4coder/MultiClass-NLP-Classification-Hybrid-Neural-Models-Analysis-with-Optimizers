@@ -1,5 +1,8 @@
-# MultiClass NLP Classification Hybrid Neural Models Analysis with Optimizers
+# Detailed Comparison of Hybrid Deep Neural Models and Optimizers for Multiclass classification in NLP
 
+<p>Multi-class classification based on textual data refers to a supervised machine learning task, where we try to predict a certain class for input data, given the input data in raw textual format. Well, thanks to TensorFlow, we have a variety of algorithms available to perform multi-class classification via natural language processing.</p>
+
+<p>Here , I have tried to perform a detailed analysis and comparison of various hybrid combination of deep neural networks and choosing different optimizer's impact on their learning and training of model and hence , their performance and time taken to train.</p>
 
 ## CNN1-D:
 ### Model 1 - CNN-1D :
@@ -456,3 +459,107 @@ Model Accuracy on training data:  0.2606741487979889
 Model Loss on validation data 1.595898985862732
 Model Accuracy on validation data:  0.24494382739067078
  ```
+
+
+## Summarised Analysis:
+
+```
++------------------------------------------+----------+----------------------------+
+|          Model [With Optimiser]          | Accuracy | Time Taken To Train (secs) |
++------------------------------------------+----------+----------------------------+
+|              CNN-1D [Adam]               |  95.28   |           179.62           |
+|             CNN-1D [AdaGrad]             |  88.76   |           307.4            |
+|               CNN-1D [SGD]               |  84.72   |           182.02           |
+|             CNN-1D [RMSProp]             |  93.48   |           56.43            |
+|            CNN-1D [AdaDelta]             |  26.97   |           107.23           |
+|               LSTM [Adam]                |  81.57   |           797.8            |
+|              LSTM [AdaGrad]              |  36.85   |          1106.78           |
+|                LSTM [SGD]                |  33.93   |           665.59           |
+|              LSTM [RMSProp]              |  93.93   |           494.15           |
+|             LSTM [AdaDelta]              |  23.15   |           207.85           |
+|        Bidirectional LSTM [Adam]         |  94.61   |           490.36           |
+|       Bidirectional LSTM [AdaGrad]       |  83.37   |          1439.13           |
+|         Bidirectional LSTM [SGD]         |  32.81   |           613.55           |
+|       Bidirectional LSTM [RMSProp]       |  93.48   |           432.31           |
+|      Bidirectional LSTM [AdaDelta]       |  24.04   |           460.73           |
+|           CNN-1D + LSTM  [Adam]          |  87.19   |           359.42           |
+|         CNN-1D + LSTM  [AdaGrad]         |  27.19   |           160.44           |
+|           CNN-1D + LSTM  [SGD]           |  50.79   |           597.64           |
+|         CNN-1D + LSTM  [RMSProp]         |  94.38   |           211.52           |
+|         CNN-1D + LSTM  [AdaDelta]        |  24.04   |           136.47           |
+|    CNN-1D + Bidirectional LSTM  [Adam]   |  94.38   |           417.38           |
+|  CNN-1D + Bidirectional LSTM  [AdaGrad]  |  87.64   |           871.27           |
+|    CNN-1D + Bidirectional LSTM  [SGD]    |  69.89   |          1121.19           |
+|  CNN-1D + Bidirectional LSTM  [RMSProp]  |  94.83   |           222.42           |
+|  CNN-1D + Bidirectional LSTM  [AdaDelta] |  24.49   |           123.59           |
++------------------------------------------+----------+----------------------------+
+```
+
+### Let's Sort this table based on Highest Accuracy :
+
+```
++------------------------------------------+----------+----------------------------+
+|          Model [With Optimiser]          | Accuracy | Time Taken To Train (secs) |
++------------------------------------------+----------+----------------------------+
+|    CNN-1D + Bidirectional LSTM  [Adam]   |  95.28   |           144.17           |
+|        Bidirectional LSTM [Adam]         |  94.61   |           91.48            |
+|              CNN-1D [Adam]               |  93.71   |           132.44           |
+|              LSTM [RMSProp]              |  92.81   |           77.25            |
+|       Bidirectional LSTM [RMSProp]       |  92.81   |           75.92            |
+|  CNN-1D + Bidirectional LSTM  [RMSProp]  |  92.81   |           48.54            |
+|             CNN-1D [RMSProp]             |  92.58   |           27.58            |
+|         CNN-1D + LSTM  [RMSProp]         |  91.24   |           38.41            |
+|  CNN-1D + Bidirectional LSTM  [AdaGrad]  |  89.66   |           103.6            |
+|             CNN-1D [AdaGrad]             |  86.52   |           42.86            |
+|               CNN-1D [SGD]               |  85.17   |           49.21            |
+|       Bidirectional LSTM [AdaGrad]       |  83.37   |           99.64            |
+|           CNN-1D + LSTM  [Adam]          |  81.57   |           181.62           |
+|    CNN-1D + Bidirectional LSTM  [SGD]    |  68.99   |           90.17            |
+|               LSTM [Adam]                |  38.43   |           119.48           |
+|           CNN-1D + LSTM  [SGD]           |  34.61   |           35.07            |
+|         Bidirectional LSTM [SGD]         |  33.93   |           66.54            |
+|                LSTM [SGD]                |  33.26   |           36.67            |
+|         CNN-1D + LSTM  [AdaGrad]         |  33.03   |           14.81            |
+|            CNN-1D [AdaDelta]             |  28.31   |           23.97            |
+|              LSTM [AdaGrad]              |  25.17   |           32.49            |
+|      Bidirectional LSTM [AdaDelta]       |  24.49   |           21.34            |
+|         CNN-1D + LSTM  [AdaDelta]        |  24.49   |           14.91            |
+|             LSTM [AdaDelta]              |  24.27   |           11.98            |
+|  CNN-1D + Bidirectional LSTM  [AdaDelta] |   22.7   |           16.33            |
++------------------------------------------+----------+----------------------------+
+```
+
+
+### Let's Sort this table based Maximum Time Taken By A Model :
+
+```
++------------------------------------------+----------+----------------------------+
+|          Model [With Optimiser]          | Accuracy | Time Taken To Train (secs) |
++------------------------------------------+----------+----------------------------+
+|           CNN-1D + LSTM  [Adam]          |  81.57   |           181.62           |
+|    CNN-1D + Bidirectional LSTM  [Adam]   |  95.28   |           144.17           |
+|              CNN-1D [Adam]               |  93.71   |           132.44           |
+|               LSTM [Adam]                |  38.43   |           119.48           |
+|  CNN-1D + Bidirectional LSTM  [AdaGrad]  |  89.66   |           103.6            |
+|       Bidirectional LSTM [AdaGrad]       |  83.37   |           99.64            |
+|        Bidirectional LSTM [Adam]         |  94.61   |           91.48            |
+|    CNN-1D + Bidirectional LSTM  [SGD]    |  68.99   |           90.17            |
+|              LSTM [RMSProp]              |  92.81   |           77.25            |
+|       Bidirectional LSTM [RMSProp]       |  92.81   |           75.92            |
+|         Bidirectional LSTM [SGD]         |  33.93   |           66.54            |
+|               CNN-1D [SGD]               |  85.17   |           49.21            |
+|  CNN-1D + Bidirectional LSTM  [RMSProp]  |  92.81   |           48.54            |
+|             CNN-1D [AdaGrad]             |  86.52   |           42.86            |
+|         CNN-1D + LSTM  [RMSProp]         |  91.24   |           38.41            |
+|                LSTM [SGD]                |  33.26   |           36.67            |
+|           CNN-1D + LSTM  [SGD]           |  34.61   |           35.07            |
+|              LSTM [AdaGrad]              |  25.17   |           32.49            |
+|             CNN-1D [RMSProp]             |  92.58   |           27.58            |
+|            CNN-1D [AdaDelta]             |  28.31   |           23.97            |
+|      Bidirectional LSTM [AdaDelta]       |  24.49   |           21.34            |
+|  CNN-1D + Bidirectional LSTM  [AdaDelta] |   22.7   |           16.33            |
+|         CNN-1D + LSTM  [AdaDelta]        |  24.49   |           14.91            |
+|         CNN-1D + LSTM  [AdaGrad]         |  33.03   |           14.81            |
+|             LSTM [AdaDelta]              |  24.27   |           11.98            |
++------------------------------------------+----------+----------------------------+
+```
