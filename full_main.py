@@ -1530,11 +1530,4 @@ print(table.get_string(sortby='Accuracy',reversesort=True))
 
 print(table.get_string(sortby='Time Taken To Train (secs)',reversesort=True))
 
-"""#Link For References :
-
-1. https://ruder.io/deep-learning-nlp-best-practices/#:~:text=Optimization%20algorithm%20Adam%20(Kingma%20%26%20Ba,stochastic%20gradient%20descent%20(SGD).
-2. https://colah.github.io/posts/2015-08-Understanding-LSTMs/
-3. https://machinelearningmastery.com/sequence-classification-lstm-recurrent-neural-networks-python-keras/
-4. https://www.jeansnyman.com/posts/multi-class-text-classification-with-tensorflow/
-"""
 
